@@ -1,0 +1,73 @@
+.bodyCourse {
+    background-color: $amarillo;
+
+    h1 {
+        @include titulo;
+        font-size: 60px;
+    }
+
+    .courseBuy {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2em;
+
+        .courseInfo {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                padding: 2em;
+                text-align: justify;
+                font-family: $titulo;
+            }
+
+            ul {
+                padding: 2em;
+                margin-left: 2em;
+                font-family: $titulo;
+
+                li {
+                    list-style: circle;
+                }
+            }
+
+            .price {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                border-style: solid;
+                border-width: 1px;
+                border-color: $color-titulo;
+                padding: 1em;
+
+                h4 {
+                    @include titulo;
+                    font-size: 20px;
+                    margin-right: 4em;
+                }
+
+                button {
+                    width: 8em;
+                    border-radius: 10%;
+                    border-style: none;
+                    padding: 1em;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+
+        .courseImg {
+            width: 50%;
+
+            img {
+                margin-left: 5em;
+            }
+        }
+    }
+}

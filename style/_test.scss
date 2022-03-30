@@ -1,0 +1,324 @@
+#mainTest {
+    background-color: $rosa-fuerte;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 850px;
+    width: 100%;
+
+    .divLog {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+
+
+        input {
+            font-size: 18px;
+            font-family: $titulo;
+            color: $rosa-viejo;
+            width: 10em;
+            height: 1.5em;
+            text-align: center;
+            margin-top: 1em;
+            border-top-style: none;
+            border-left-style: none;
+            border-right-style: none;
+            background: transparent;
+            border-bottom-style: solid;
+            border-color: $celeste-claro;
+        }
+
+        img {
+            width: 5em;
+            height: auto;
+        }
+
+        .mailResultado {
+            font-size: 18px;
+            font-family: $titulo;
+            color: $rosa-viejo;
+            text-align: center;
+            padding-left: 4em;
+            padding-right: 4em;
+            margin-top: 1em;
+        }
+
+        .ingresar {
+            width: 4em;
+            height: 2em;
+            border-radius: 5px;
+            justify-content: center;
+            align-items: center;
+            border-style: none;
+            font-family: $titulo;
+        }
+    }
+
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .left {
+            width: 90%;
+
+            p {
+                font-family: $titulo;
+                font-size: 20px;
+                text-align: center;
+                color: $rosa-viejo;
+                padding: 2em;
+                margin-top: 2em;
+                background-color: $rosa-blanco;
+                border-style: none;
+                border-radius: 10px;
+            }
+        }
+
+        .right {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            height: 30em;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            padding-right: 2em;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+
+
+            .start {
+                background: hsla(154, 100%, 76%, 1);
+                background: linear-gradient(180deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
+                background: -moz-linear-gradient(180deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
+                background: -webkit-linear-gradient(180deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
+                border-style: none;
+                border-radius: 42% 58% 67% 33% / 46% 30% 70% 54%;
+                color: white;
+                width: 12em;
+                height: 12em;
+                padding: 3em;
+                margin-left: 2em;
+                margin-top: 1em;
+                border-style: none;
+                font-family: $titulo2;
+
+                &:hover {
+                    transform: scale(1.3);
+                    transition-duration: 1.5s;
+                }
+            }
+
+            .resultadoAnterior {
+                @extend .start;
+                width: 12em;
+                height: 12em;
+                margin-left: 11em;
+                margin-top: -2em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .start2 {
+                    background-color: transparent;
+                    border-style: solid;
+                    border-radius: 10px;
+                    border-color: #fff;
+                    border-width: 1px;
+                    font-family: $titulo;
+                    margin-top: 1em;
+                    padding: 0.5em;
+                    color: #fff;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+
+            }
+
+            .questionsDiv {
+                border-radius: 10px;
+                padding: 1em;
+                margin-top: 2em;
+                margin-left: 1em;
+                width: 100%;
+                height: 27em;
+                flex-direction: column;
+                align-items: center;
+                scroll-snap-align: start;
+
+                h3 {
+                    font-size: 20px;
+                    font-family: $titulo2;
+                    color: gray;
+                    margin-top: 2em;
+                    text-align: center;
+                }
+
+                h4 {
+                    @extend h3;
+                    margin-top: 0%;
+                }
+
+                .divOptions {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    gap: 1em;
+
+                    .btn {
+                        align-items: center;
+                        justify-content: center;
+                        height: 2.5em;
+                        font-size: 17px;
+                        overflow-wrap: normal;
+                        padding: 1em;
+                        background-color: $celeste;
+                        font-family: $titulo2;
+                        color: gray;
+
+                    }
+                }
+            }
+
+            .verResultado {
+                // @extend .start;
+                // width: 12em;
+                // height: 12em;
+                // scroll-snap-align: start;
+                // margin-top: 4em;
+                // margin-bottom: 3em;
+
+                background-color: $celeste;
+                border-radius: 4px;
+                color: gray;
+                cursor: pointer;
+                padding: 30px 30px;
+                font-size: 18px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                border: none;
+                margin-top: 5em;
+                margin-bottom: 5em;
+                margin-left: 15em;
+                scroll-snap-align: center;
+
+
+                &:hover {
+                    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
+                    animation: slidernbw 5s linear infinite;
+                    color: #fff;
+                }
+
+                @keyframes slidernbw {
+                    to {
+                        background-position: 20vw;
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        background-color: #666666;
+        width: 100%;
+        height: 7em;
+        padding: 2em;
+
+        h3 {
+            font-size: 15px;
+            text-align: center;
+            font-family: $titulo2;
+            color: #D8E2DC;
+        }
+
+    }
+}
+
+@media screen and (min-width:650px) {
+    #mainTest {
+        .divLog {
+            width: 100%;
+
+            input {
+                font-size: 18px;
+                width: 20em;
+                height: 1.5em;
+            }
+
+            img {
+                width: 10em;
+                height: auto;
+            }
+
+            .ingresar {
+                width: 6em;
+            }
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+            .left {
+                width: 40%;
+                margin-left: 1em;
+            }
+
+            .right {
+                width: 60%;
+
+                .resultadoAnterior {
+
+                    width: 15em;
+                    height: 15em;
+                }
+
+            }
+
+            .verResultado {
+                // @extend .start;
+                // width: 12em;
+                // height: 12em;
+                // scroll-snap-align: start;
+                // margin-top: 4em;
+                // margin-bottom: 3em;
+
+                background-color: $celeste;
+                border-radius: 4px;
+                color: gray;
+                cursor: pointer;
+                padding: 30px 30px;
+                font-size: 18px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                border: none;
+                margin-top: 5em;
+                margin-bottom: 5em;
+                margin-left: 15em;
+                scroll-snap-align: center;
+
+
+                &:hover {
+                    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
+                    animation: slidernbw 5s linear infinite;
+                    color: #fff;
+                }
+
+                @keyframes slidernbw {
+                    to {
+                        background-position: 20vw;
+                    }
+                }
+            }
+        }
+    }
+}

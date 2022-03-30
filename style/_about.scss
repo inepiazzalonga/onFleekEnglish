@@ -1,0 +1,40 @@
+.aboutUs {
+    background-color: $celeste;
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $celeste-claro;
+        width: 100%;
+        .aboutTitle{
+            @include h2;
+        }
+
+        .us {
+            width: 90%;
+            height: 20em;
+            background-image: url(../img/aboutus.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+
+        .info {
+            width: 90%;
+            padding-top: 6em;
+            padding: 2em;
+            font-family: $titulo;
+            color: $rosa-viejo;
+
+            h2 {
+                text-align: center;
+            }
+
+            p {
+                text-align: justify;
+            }
+        }
+    }
+}

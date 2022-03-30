@@ -1,0 +1,98 @@
+#courses {
+    background-color: $rosa-blanco;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    height: 600px;
+    width: 100%;
+
+    h2 {
+        @include h2;
+        font-size: 20px;
+        color: $amarillo-fuerte;
+        margin-top: 1em;
+    }
+
+    .level {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0%;
+        margin-right: 1em;
+
+        .levels {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-left: 0%;
+            margin-bottom: 1.5em;
+            gap: 1.5em;
+            padding: 1em;
+
+            .buttonLevel {
+                width: 10em;
+                height: 10em;
+                padding: 1em;
+                background: hsla(154, 100%, 76%, 1);
+
+                background: linear-gradient(180deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
+
+                background: -moz-linear-gradient(180deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
+
+                background: -webkit-linear-gradient(180deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
+
+
+                border-style: none;
+                border-radius: 42% 58% 67% 33% / 46% 30% 70% 54%;
+
+
+                &:hover {
+                    transform: scale(1.2);
+                    transition-duration: 1s;
+                }
+
+                a {
+                    text-decoration: none;
+                    font-size: 15px;
+                    color: #fff;
+                    font-family: $titulo2;
+                }
+            }
+        }
+    }
+
+    .coursesInfo {
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .divCourse {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2em;
+
+            .saberMas {
+                width: 6em;
+                height: 2em;
+                background-color: aqua;
+                border-style: none;
+            }
+
+            .divInfo {
+                width: 25em;
+                text-align: center;
+            }
+        }
+    }
+
+    .divCarrito {
+        height: 150px;
+        background-color: azure;
+        text-align: center;
+    }
+
+
+}
