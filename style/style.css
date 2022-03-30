@@ -125,6 +125,22 @@ html {
   color: #D8E2DC;
 }
 
+@media screen and (min-width: 610px) {
+  .bodyIndex .index {
+    height: 800px;
+  }
+  .bodyIndex .index button {
+    width: 9em;
+    height: 9em;
+  }
+  .bodyIndex .index button a {
+    font-size: 19px;
+  }
+  .bodyIndex footer h3, .bodyIndex footer #mainTest .contenedor .right .questionsDiv h4, #mainTest .contenedor .right .questionsDiv .bodyIndex footer h4 {
+    font-size: 17px;
+  }
+}
+
 .aboutUs {
   background-color: #D8E2DC;
 }
@@ -179,6 +195,42 @@ html {
 
 .aboutUs .about .info p {
   text-align: justify;
+}
+
+@media screen and (min-width: 610px) {
+  .aboutUs .about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #E8E8E4;
+    width: 100%;
+  }
+  .aboutUs .about .titlePic {
+    width: 50%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .aboutUs .about .titlePic .us {
+    width: 90%;
+  }
+  .aboutUs .about .info {
+    width: 50%;
+  }
 }
 
 #courses {
@@ -308,6 +360,24 @@ html {
   height: 150px;
   background-color: azure;
   text-align: center;
+}
+
+@media screen and (min-width: 610px) {
+  #courses {
+    height: 400px;
+  }
+  #courses h2 {
+    font-size: 28px;
+  }
+  #courses .level {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 #mainTest {
@@ -570,7 +640,7 @@ html {
   border: none;
   margin-top: 5em;
   margin-bottom: 5em;
-  margin-left: 15em;
+  margin-left: 5em;
   scroll-snap-align: center;
 }
 
@@ -609,6 +679,9 @@ html {
 }
 
 @media screen and (min-width: 650px) {
+  #mainTest {
+    height: 550px;
+  }
   #mainTest .divLog {
     width: 100%;
   }
@@ -650,38 +723,6 @@ html {
   #mainTest .contenedor .right .resultadoAnterior {
     width: 15em;
     height: 15em;
-  }
-  #mainTest .contenedor .verResultado {
-    background-color: #D8E2DC;
-    border-radius: 4px;
-    color: gray;
-    cursor: pointer;
-    padding: 30px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border: none;
-    margin-top: 5em;
-    margin-bottom: 5em;
-    margin-left: 15em;
-    scroll-snap-align: center;
-  }
-  #mainTest .contenedor .verResultado:hover {
-    background-image: -webkit-gradient(linear, left top, right top, from(#53cbef), color-stop(50%, #dcc66c), color-stop(75%, #ffa3b6), to(#53cbef));
-    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
-    -webkit-animation: slidernbw 5s linear infinite;
-            animation: slidernbw 5s linear infinite;
-    color: #fff;
-  }
-  @-webkit-keyframes slidernbw {
-    to {
-      background-position: 20vw;
-    }
-  }
-  @keyframes slidernbw {
-    to {
-      background-position: 20vw;
-    }
   }
 }
 

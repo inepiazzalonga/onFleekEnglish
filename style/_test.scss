@@ -188,12 +188,7 @@
             }
 
             .verResultado {
-                // @extend .start;
-                // width: 12em;
-                // height: 12em;
-                // scroll-snap-align: start;
-                // margin-top: 4em;
-                // margin-bottom: 3em;
+             
 
                 background-color: $celeste;
                 border-radius: 4px;
@@ -206,7 +201,7 @@
                 border: none;
                 margin-top: 5em;
                 margin-bottom: 5em;
-                margin-left: 15em;
+                margin-left: 5em;
                 scroll-snap-align: center;
 
 
@@ -242,6 +237,7 @@
 
 @media screen and (min-width:650px) {
     #mainTest {
+        height: 550px;
         .divLog {
             width: 100%;
 
@@ -277,47 +273,10 @@
                 width: 60%;
 
                 .resultadoAnterior {
-
                     width: 15em;
                     height: 15em;
                 }
 
-            }
-
-            .verResultado {
-                // @extend .start;
-                // width: 12em;
-                // height: 12em;
-                // scroll-snap-align: start;
-                // margin-top: 4em;
-                // margin-bottom: 3em;
-
-                background-color: $celeste;
-                border-radius: 4px;
-                color: gray;
-                cursor: pointer;
-                padding: 30px 30px;
-                font-size: 18px;
-                font-weight: bold;
-                letter-spacing: 1px;
-                border: none;
-                margin-top: 5em;
-                margin-bottom: 5em;
-                margin-left: 15em;
-                scroll-snap-align: center;
-
-
-                &:hover {
-                    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
-                    animation: slidernbw 5s linear infinite;
-                    color: #fff;
-                }
-
-                @keyframes slidernbw {
-                    to {
-                        background-position: 20vw;
-                    }
-                }
             }
         }
     }
