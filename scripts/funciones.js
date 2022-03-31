@@ -1,17 +1,16 @@
 // variables
 const body = document.body;
 const main = document.getElementById("mainTest");
-const divLog = document.createElement("div");
-const logIn = document.createElement("img");
-const inputNombre = document.createElement("input");
-const inputMail = document.createElement("input");
-inputMail.setAttribute("class", "inputMail");
+
+// const logIn = document.createElement("img");
+// const inputNombre = document.createElement("input");
+// const inputMail = document.createElement("input");
+// inputMail.setAttribute("class", "inputMail");
 // inputMail.setAttribute("required", "")
-inputMail.required=true;
-inputMail.setAttribute("type", "email");
-const mail = document.querySelectorAll(".inputMail").value;
-const mailResultado = document.createElement("p");
-const ingresar = document.createElement("button");
+// inputMail.setAttribute("type", "email");
+// const mail = document.querySelectorAll(".inputMail").value;
+// const mailResultado = document.createElement("p");
+// const ingresar = document.createElement("button");
 const start = document.createElement("button");
 // left
 const left = document.createElement("div");
@@ -21,24 +20,41 @@ const right = document.createElement("div");
 right.setAttribute("class", "right");
 
 
-
+const divLog = document.querySelector(`.divLog`);
 // LOG IN
-function inicio() {
-    divLog.setAttribute("class", "divLog");
-    main.appendChild(divLog);
-    logIn.setAttribute("src", "../img/iniciar-sesion.png");
-    divLog.append(logIn);
-    inputNombre.setAttribute("placeholder", "Por favor ingresa tu nombre");
-    divLog.append(inputNombre);
-    inputMail.setAttribute("placeholder", "Por favor ingresa tu mail");
-    divLog.append(inputMail);
-    mailResultado.setAttribute("class", "mailResultado");
-    mailResultado.innerText = ("El resultado del test será enviado por mail");
-    divLog.append(mailResultado)
-    ingresar.innerText = ("Ingresar");
-    ingresar.setAttribute("class", "ingresar");
-    divLog.append(ingresar);
-}
+// function inicio() {
+//     const ingresar = document.querySelector(`.ingresar`);
+//     const inputNombre = document.querySelector(`.inputNombre`).value;
+//     const inputMail = document.querySelector(`.inputMail`).value;
+//     ingresar.addEventListener("click", () => {
+//         if (inputMail.length == 0 || inputNombre.length == 0) {
+//             Swal.fire(`Por favor completa todos los campos`)
+//             return false;
+
+//         } else{
+//             return true;
+//             introTest();
+
+//         }
+
+//     });
+// }
+// function inicio() {
+//     divLog.setAttribute("class", "divLog");
+//     main.appendChild(divLog);
+//     logIn.setAttribute("src", "../img/iniciar-sesion.png");
+//     divLog.append(logIn);
+//     inputNombre.setAttribute("placeholder", "Por favor ingresa tu nombre");
+//     divLog.append(inputNombre);
+//     inputMail.setAttribute("placeholder", "Por favor ingresa tu mail");
+//     divLog.append(inputMail);
+//     mailResultado.setAttribute("class", "mailResultado");
+//     mailResultado.innerText = ("El resultado del test será enviado por mail");
+//     divLog.append(mailResultado)
+//     ingresar.innerText = ("Ingresar");
+//     ingresar.setAttribute("class", "ingresar");
+//     divLog.append(ingresar);
+// }
 
 // INTRO TEST
 function introTest() {
@@ -53,10 +69,10 @@ function introTest() {
     const text = document.createElement(`p`);
     text.innerText = ("Este test solo te llevara 10 minutos. Te recomendamos que lo hagas a tu tiempo, lee bien las preguntas y selecciona la opción correcta. Al finalizar sabrás que nivel de inglés tienes.");
     left.append(text);
-    // right    
+    // right
     contenedor.append(right);
 
-    // start button    
+    // start button
     right.append(start);
     start.setAttribute("class", "start")
     start.innerText = ("START");
@@ -81,7 +97,7 @@ function introTest() {
         //     start2.addEventListener("click", function(){
         //         comenzarTest()
         //     })
-        // } else 
+        // } else
         if (resultado.length < 20) {
             resultadoAnterior.innerText = ("Tuviste " + resultado.length + " respuestas correctas! Tu nivel es Elementary")
         } else if (resultado.length > 20 && resultado.length <= 29) {
@@ -101,6 +117,11 @@ console.log(respuestasIncorrectas)
 
 // COMENZAR TEST
 function comenzarTest(e) {
+    fetch(`preguntasJson.json`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
     start.remove();
     for (let i = 0; i < preguntas.length; i++) {
         right.style.backgroundColor = "transparent";
@@ -123,33 +144,27 @@ function comenzarTest(e) {
         option4.setAttribute("class", "btn");
         divOptions.append(option1, option2, option3, option4);
         const next = document.createElement(`button`);
-        next.innerHTML = ("Siguiente =>")
+        next.setAttribute("class", "next")
         questionsDiv.append(next)
+
         next.addEventListener("click", function () {
             scroll()
             respuestasIncorrectas.push("Sin responder")
+            Toastify({
+                text: "X",
+                duration: 3000,
+                style: {
+                    background: "#ec4a3f",
+                }
+
+            }).showToast();
         })
-        const tiempo = document.createElement(`h3`);
-        questionsDiv.append(tiempo)
+
 
         function scroll() {
             right.style.scrollSnapType = "y mandatory",
                 questionsDiv.style.scrollSnapAlign = "start"
             right.scrollBy(0, 500)
-        }
-
-        function tiempoResponder() {
-            let segundos = 0;
-            let temporizador = setInterval(() => {
-                segundos += 1;
-                tiempo.innerHTML = segundos;
-                if (segundos >= 15) {
-                    right.style.scrollSnapType = "y mandatory",
-                        questionsDiv.style.scrollSnapAlign = "start"
-                    right.scrollBy(0, 500)
-                    clearInterval(temporizador)
-                }
-            }, 1000)
         }
 
         h3.innerHTML = `Pregunta nro. ${preguntas[i].number} de 60`;
@@ -351,6 +366,7 @@ function nivel() {
             }).then((result) => {
 
                 if (result.isConfirmed) {
+                    scroll()
                     verIncorrectas()
                 }
             })
