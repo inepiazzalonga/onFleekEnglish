@@ -1,16 +1,6 @@
 // variables
 const body = document.body;
 const main = document.getElementById("mainTest");
-
-// const logIn = document.createElement("img");
-// const inputNombre = document.createElement("input");
-// const inputMail = document.createElement("input");
-// inputMail.setAttribute("class", "inputMail");
-// inputMail.setAttribute("required", "")
-// inputMail.setAttribute("type", "email");
-// const mail = document.querySelectorAll(".inputMail").value;
-// const mailResultado = document.createElement("p");
-// const ingresar = document.createElement("button");
 const start = document.createElement("button");
 // left
 const left = document.createElement("div");
@@ -18,43 +8,47 @@ left.setAttribute("class", "left");
 // right
 const right = document.createElement("div");
 right.setAttribute("class", "right");
-
-
 const divLog = document.querySelector(`.divLog`);
+const inputNombre = document.querySelector(`.inputNombre`);
+const inputMail = document.querySelector(`.inputMail`)
 // LOG IN
-// function inicio() {
-//     const ingresar = document.querySelector(`.ingresar`);
-//     const inputNombre = document.querySelector(`.inputNombre`).value;
-//     const inputMail = document.querySelector(`.inputMail`).value;
-//     ingresar.addEventListener("click", () => {
-//         if (inputMail.length == 0 || inputNombre.length == 0) {
-//             Swal.fire(`Por favor completa todos los campos`)
-//             return false;
 
-//         } else{
-//             return true;
-//             introTest();
+function inicio() {
+    divLog.querySelector(`.divLog`);
+    const ingresar = document.querySelector(`.ingresar`)
+    ingresar.addEventListener("click", function () {
+        Swal.fire({
+            title: 'Ingrese su Email',
+            input: 'email',
+            inputLabel: 'Para finalizar su compra',
+            inputPlaceholder: 'Ingrese su mail'
+        })
 
-//         }
+        if (email) {
+            Swal.fire(`Entered email: ${email}`)
+        }
+        data = {
+                service_id: 'service_96ng8fg',
+                template_id: 'template_wmp4yfa',
+                user_id: 'PiYl-C39rIpuxbtAj',
+                template_params: {
+                    'username': 'James',
+                    'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
+                }
+            },
 
-//     });
-// }
-// function inicio() {
-//     divLog.setAttribute("class", "divLog");
-//     main.appendChild(divLog);
-//     logIn.setAttribute("src", "../img/iniciar-sesion.png");
-//     divLog.append(logIn);
-//     inputNombre.setAttribute("placeholder", "Por favor ingresa tu nombre");
-//     divLog.append(inputNombre);
-//     inputMail.setAttribute("placeholder", "Por favor ingresa tu mail");
-//     divLog.append(inputMail);
-//     mailResultado.setAttribute("class", "mailResultado");
-//     mailResultado.innerText = ("El resultado del test será enviado por mail");
-//     divLog.append(mailResultado)
-//     ingresar.innerText = ("Ingresar");
-//     ingresar.setAttribute("class", "ingresar");
-//     divLog.append(ingresar);
-// }
+            $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json'
+            }).done(function () {
+                alert('Your mail is sent!');
+            }).fail(function (error) {
+                alert('Oops... ' + JSON.stringify(error));
+            })
+    })
+
+}
 
 // INTRO TEST
 function introTest() {
