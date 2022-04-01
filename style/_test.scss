@@ -278,7 +278,7 @@ footer {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
             width: 100%;
 
             .left {
@@ -288,10 +288,14 @@ footer {
 
             .right {
                 width: 60%;
+                .start{
+                    margin-left: 7em;
+                }
 
                 .resultadoAnterior {
                     width: 15em;
                     height: 15em;
+                    margin-left: 18em;
                 }
 
             }

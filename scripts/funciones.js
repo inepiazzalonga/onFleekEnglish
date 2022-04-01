@@ -10,49 +10,49 @@ const right = document.createElement("div");
 right.setAttribute("class", "right");
 const divLog = document.querySelector(`.divLog`);
 const inputNombre = document.querySelector(`.inputNombre`);
-const inputMail = document.querySelector(`.inputMail`)
+const inputMail = document.querySelector(`.inputMail`);
 // LOG IN
 
-function inicio() {
-    divLog.querySelector(`.divLog`);
-    const ingresar = document.querySelector(`.ingresar`)
-    ingresar.addEventListener("click", function () {
-        Swal.fire({
-            title: 'Ingrese su Email',
-            input: 'email',
-            inputLabel: 'Para finalizar su compra',
-            inputPlaceholder: 'Ingrese su mail'
-        })
+// function inicio() {
+//     divLog.querySelector(`.divLog`);
+//     const ingresar = document.querySelector(`.ingresar`)
+//     ingresar.addEventListener("click", function () {
+//         Swal.fire({
+//             title: 'Ingrese su Email',
+//             input: 'email',
+//             inputLabel: 'Para finalizar su compra',
+//             inputPlaceholder: 'Ingrese su mail'
+//         })
 
-        if (email) {
-            Swal.fire(`Entered email: ${email}`)
-        }
-        data = {
-                service_id: 'service_96ng8fg',
-                template_id: 'template_wmp4yfa',
-                user_id: 'PiYl-C39rIpuxbtAj',
-                template_params: {
-                    'username': 'James',
-                    'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
-                }
-            },
+//         if (inputMail) {
+//             Swal.fire(`Entered email: ${inputMail}`)
+//         }
+//         data = {
+//                 service_id: 'service_96ng8fg',
+//                 template_id: 'template_wmp4yfa',
+//                 user_id: 'PiYl-C39rIpuxbtAj',
+//                 template_params: {
+//                     'username': 'James',
+//                     'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
+//                 }
+//             },
 
-            $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-                type: 'POST',
-                data: JSON.stringify(data),
-                contentType: 'application/json'
-            }).done(function () {
-                alert('Your mail is sent!');
-            }).fail(function (error) {
-                alert('Oops... ' + JSON.stringify(error));
-            })
-    })
+//             $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+//                 type: 'POST',
+//                 data: JSON.stringify(data),
+//                 contentType: 'application/json'
+//             }).done(function () {
+//                 alert('Your mail is sent!');
+//             }).fail(function (error) {
+//                 alert('Oops... ' + JSON.stringify(error));
+//             })
+//     })
 
-}
+// }
 
 // INTRO TEST
 function introTest() {
-    divLog.remove()
+    // divLog.remove()
     // contenedor
     const contenedor = document.createElement(`div`);
     contenedor.setAttribute("class", "contenedor")
@@ -111,11 +111,6 @@ console.log(respuestasIncorrectas)
 
 // COMENZAR TEST
 function comenzarTest(e) {
-    fetch(`preguntasJson.json`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        })
     start.remove();
     for (let i = 0; i < preguntas.length; i++) {
         right.style.backgroundColor = "transparent";
@@ -351,6 +346,11 @@ function nivel() {
             })
         } else {
             Swal.fire({
+                title: 'Ingrese su Email',
+                input: 'email',
+                inputLabel: 'Para finalizar su compra',
+                inputPlaceholder: 'Ingrese su mail',
+                
                 title: 'Great job!',
                 text: "Tuviste " + respuestasUsuario.length + " respuestas correctas! Tu nivel es Advanced",
                 showCancelButton: true,
@@ -362,6 +362,7 @@ function nivel() {
                 if (result.isConfirmed) {
                     scroll()
                     verIncorrectas()
+                    enviarMail()
                 }
             })
         }

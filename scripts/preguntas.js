@@ -486,15 +486,3 @@ preguntas.forEach((pregunta) => {
     respuestasCorrectas.push(pregunta.answer)
 })
 console.log(respuestasCorrectas)
-
-const pregunta60 = {
-    number: 60,
-    text: "I didn't want to do it in the past, but now I ______.",
-    options: ["a. would want", "b. 'm wanting to", "c. want", "d. want to"],
-    answer: "d. want to",
-    ok: false,
-    score: 1,
-}
-
-const {number, text, options} = [...preguntas];
-console.log(number)

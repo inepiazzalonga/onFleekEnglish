@@ -724,9 +724,8 @@ footer h3, footer #mainTest .contenedor .right .questionsDiv h4, #mainTest .cont
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     width: 100%;
   }
   #mainTest .contenedor .left {
@@ -736,9 +735,13 @@ footer h3, footer #mainTest .contenedor .right .questionsDiv h4, #mainTest .cont
   #mainTest .contenedor .right {
     width: 60%;
   }
+  #mainTest .contenedor .right .start, #mainTest .contenedor .right .resultadoAnterior {
+    margin-left: 7em;
+  }
   #mainTest .contenedor .right .resultadoAnterior {
     width: 15em;
     height: 15em;
+    margin-left: 18em;
   }
 }
 

@@ -3,7 +3,7 @@
 
 // login
 
-inicio()
+// inicio()
 // ingresar
 
 // inputMail.addEventListener('keyup', function (e) {
@@ -12,7 +12,7 @@ inicio()
 // });
 
 
-
+introTest()
 // mostrar test
 start.addEventListener("click", function () {
     comenzarTest()
