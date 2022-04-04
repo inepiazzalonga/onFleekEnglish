@@ -16,13 +16,27 @@ const courses = document.querySelector(`#courses`)
 
 
 let url = "./infoCursos.json";
-// let myRequest = new Request(url, myInit);
-// console.log(myRequest);
 
 fetch(url)
-.then((res) => res.json())
-.then((data) => console.log(data))
-.catch(err => console.log(err));
+    .then((resp) => resp.json())
+    .then((data) => {
+
+        data.forEach(infoCursos => {
+            courses.append(divInfo)
+            divInfo.innerHTML += `
+        <h2>Curso ${infoCursos.nombre}</h2>
+        <h3>Precio: ${infoCursos.precio}</h3>
+        <p>Detalles del curso: ${infoCursos.info}</p>
+        <p>Duración: ${infoCursos.duracion}</p>
+        <p>Modalidad: ${infoCursos.modalidad}</p>`
+        });
+    })
+    .catch(err => console.log(err));
+
+
+
+
+
 
 // begginer.addEventListener("click", () => {
 //     intermediate.remove(),
