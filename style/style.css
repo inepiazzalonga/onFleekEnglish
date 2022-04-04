@@ -65,6 +65,11 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
+.bodyIndex .navbar h1 {
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+}
+
 .bodyIndex .index {
   background-image: url(../img/origami-g416446fa1_1920.jpg);
   background-size: cover;
