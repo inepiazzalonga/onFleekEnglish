@@ -5,21 +5,21 @@ const noSe = document.querySelector(`#noSe`)
 const divInfo = document.createElement(`div`)
 const courses = document.querySelector(`#courses`)
 
-let myInit = {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    mode: 'no-cors',
-    cache: 'default'
-};
+// let myInit = {
+//     method: 'GET',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     mode: 'no-cors',
+//     cache: 'default'
+// };
 
 
 let url = "./infoCursos.json";
-let myRequest = new Request(url, myInit);
+// let myRequest = new Request(url, myInit);
 // console.log(myRequest);
 
-fetch(myRequest)
+fetch(url)
 .then((res) => res.json())
 .then((data) => console.log(data))
 .catch(err => console.log(err));
