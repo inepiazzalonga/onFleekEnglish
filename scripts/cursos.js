@@ -4,6 +4,7 @@ const intermediate = document.querySelector(`#intermediate`)
 const advanced = document.querySelector(`#advanced`)
 const noSe = document.querySelector(`#noSe`)
 
+
 // let myInit = {
 //     method: 'GET',
 //     headers: {

@@ -30,8 +30,8 @@
             width: 50%;
 
             .buttonLevel {
-                width: 20em;
-                height: 10em;
+                width: 26em;
+                height: 13em;
                 padding: 1em;
                 background: hsla(154, 100%, 76%, 1);
                 background: linear-gradient(180deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
@@ -46,6 +46,7 @@
                 font-size: 15px;
                 color: #fff;
                 font-family: $titulo2;   
+                line-height: 10em;
 
                 &:hover{
                     transform: scale(1.2);
