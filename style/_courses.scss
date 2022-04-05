@@ -47,7 +47,7 @@
                 color: #fff;
                 font-family: $titulo2;   
 
-                &:hover::before {
+                &:hover{
                     transform: scale(1.2);
                     transition-duration: 1s;
                 }

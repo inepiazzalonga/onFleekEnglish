@@ -333,7 +333,7 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
-#courses .levelsInfo .levels .buttonLevel:hover::before {
+#courses .levelsInfo .levels .buttonLevel:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition-duration: 1s;

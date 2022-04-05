@@ -301,7 +301,6 @@ function nivel() {
 
 function verIncorrectas() {
     for (let i = 0; i < preguntas.length; i++) {
-
         right.style.backgroundColor = "transparent";
         right.style.overflow = ("scroll")
         let questionsDiv = document.createElement(`div`);
@@ -315,6 +314,7 @@ function verIncorrectas() {
         const yourAnswer = document.createElement(`h5`)
         yourAnswer.innerText = ("Tu respuesta fue: " + respuestasIncorrectas[i])
         yourAnswer.style.color = "red"
+        yourAnswer.style.textAlign=("center")
         let divOptions = document.createElement(`div`);
         divOptions.setAttribute("class", "divOptions");
         let option1 = document.createElement("button");

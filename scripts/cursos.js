@@ -21,6 +21,7 @@ fetch(url)
     .then((infoCursos) => {
         begginer.addEventListener("click", () => {
             begginer.innerText=""
+            begginer.style.transform="none"
             begginer.style.transitionDuration="1s"
             courses.style.height = "max-content"
             begginer.style.width = "90em"
@@ -50,6 +51,7 @@ fetch(url)
         });
         intermediate.addEventListener("click", () => {
             intermediate.style.transitionDuration="1s"
+            intermediate.style.transform="none"
             intermediate.innerText=""
             courses.style.height = "max-content"
             intermediate.style.width = "90em"
@@ -79,6 +81,7 @@ fetch(url)
         })
         advanced.addEventListener("click", () => {
             advanced.style.transitionDuration="1s"
+            advanced.style.transform="none"
             advanced.innerText=""
             courses.style.height = "max-content"
             advanced.style.width = "90em"
