@@ -161,6 +161,9 @@
                     background-size: cover;
                     border-style: none;
                 }
+                .next2{
+                    @extend .next;
+                }
                 .prev{
                     @extend .next;
                     transform: rotate(180deg);

@@ -8,13 +8,9 @@ left.setAttribute("class", "left");
 // right
 const right = document.createElement("div");
 right.setAttribute("class", "right");
-const divLog = document.querySelector(`.divLog`);
-const inputNombre = document.querySelector(`.inputNombre`);
-const inputMail = document.querySelector(`.inputMail`);
 
 // INTRO TEST
 function introTest() {
-    // divLog.remove()
     // contenedor
     const contenedor = document.createElement(`div`);
     contenedor.setAttribute("class", "contenedor")
@@ -44,16 +40,6 @@ function introTest() {
         resultadoAnterior.style.marginLeft = ("15em")
         // operador O
         const resultado = JSON.parse(localStorage.getItem("respuestaStorage")) || comenzarTest()
-        // if (resultado == null) {
-        //     resultadoAnterior.innerText = ("REALIZA EL TEST PARA SABER TU NIVEL")
-        //     const start2 = document.createElement(`button`)
-        //     start2.setAttribute("class", "start2")
-        //     start2.innerText=("START!")
-        //     resultadoAnterior.append(start2)
-        //     start2.addEventListener("click", function(){
-        //         comenzarTest()
-        //     })
-        // } else
         if (resultado.length < 20) {
             resultadoAnterior.innerText = ("Tuviste " + resultado.length + " respuestas correctas! Tu nivel es Elementary")
         } else if (resultado.length > 20 && resultado.length <= 29) {
@@ -68,8 +54,6 @@ function introTest() {
 
 const respuestasUsuario = []
 const respuestasIncorrectas = []
-console.log(respuestasIncorrectas)
-
 
 // COMENZAR TEST
 function comenzarTest(e) {
@@ -97,7 +81,7 @@ function comenzarTest(e) {
         const next = document.createElement(`button`);
         next.setAttribute("class", "next")
         questionsDiv.append(next)
-
+        // pasar pregunta
         next.addEventListener("click", function () {
             scroll()
             respuestasIncorrectas.push("Sin responder")
@@ -111,13 +95,13 @@ function comenzarTest(e) {
             }).showToast();
         })
 
-
+        // funcion scroll
         function scroll() {
             right.style.scrollSnapType = "y mandatory",
                 questionsDiv.style.scrollSnapAlign = "start"
             right.scrollBy(0, 500)
         }
-
+        // mostrar preguntas
         h3.innerHTML = `Pregunta nro. ${preguntas[i].number} de 60`;
         h4.innerHTML = `${preguntas[i].text}`;
         option1.innerHTML = `${preguntas[i].options[0]}`;
@@ -129,15 +113,12 @@ function comenzarTest(e) {
         questionsDiv.append(divOptions);
 
 
-
+        // validar respuestas
         option1.addEventListener("click", function (e) {
             e.preventDefault()
             scroll()
             option1.style.backgroundColor = "#fff"
             option1.style.borderColor = "#ff2"
-            // operador ternario
-            // option1.innerHTML === preguntas[i].answer && respuestasUsuario.push(option1.innerHTML), localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
-            // option1 != preguntas[i].answer && respuestasIncorrectas.push(option1.innerHTML)
             if (option1.innerHTML === preguntas[i].answer) {
                 option1.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option1.innerHTML)
@@ -167,8 +148,6 @@ function comenzarTest(e) {
             option2.style.backgroundColor = "#fff"
             option2.style.borderColor = "#ff2"
             scroll()
-            // option2.innerHTML === preguntas[i].answer && respuestasUsuario.push(option2.innerHTML), localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
-            // option2 != preguntas[i].answer && respuestasIncorrectas.push(option2.innerHTML)
             if (option2.innerHTML === preguntas[i].answer) {
                 option2.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option2.innerHTML),
@@ -197,8 +176,6 @@ function comenzarTest(e) {
             option3.style.backgroundColor = "#fff"
             option3.style.borderColor = "#ff2"
             scroll()
-            // option3.innerHTML === preguntas[i].answer && respuestasUsuario.push(option3.innerHTML), localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
-            // option3 != preguntas[i].answer && respuestasIncorrectas.push(option3.innerHTML)
             if (option3.innerHTML === preguntas[i].answer) {
                 option3.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option3.innerHTML),
@@ -227,8 +204,6 @@ function comenzarTest(e) {
             option4.style.backgroundColor = "#fff";
             option4.style.borderColor = "#ff2";
             scroll()
-            // option4.innerHTML === preguntas[i].answer && respuestasUsuario.push(option4.innerHTML), localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
-            // option4 != preguntas[i].answer && respuestasIncorrectas.push(option4.innerHTML)
             if (option4.innerHTML === preguntas[i].answer) {
                 option4.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option4.innerHTML),
@@ -307,7 +282,7 @@ function nivel() {
                 }
             })
         } else {
-            Swal.fire({            
+            Swal.fire({
                 title: 'Great job!',
                 text: "Tuviste " + respuestasUsuario.length + " respuestas correctas! Tu nivel es Advanced",
                 showCancelButton: true,
@@ -317,9 +292,7 @@ function nivel() {
             }).then((result) => {
 
                 if (result.isConfirmed) {
-                    scroll()
                     verIncorrectas()
-                    enviarMail()
                 }
             })
         }
@@ -328,15 +301,20 @@ function nivel() {
 
 function verIncorrectas() {
     for (let i = 0; i < preguntas.length; i++) {
+
         right.style.backgroundColor = "transparent";
         right.style.overflow = ("scroll")
         let questionsDiv = document.createElement(`div`);
         questionsDiv.setAttribute("class", "questionsDiv");
         questionsDiv.setAttribute("id", "preguntasDiv");
+        questionsDiv.style.height="max-content"
         right.append(questionsDiv);
         questionsDiv.style.backgroundColor = " #fff";
         let h3 = document.createElement("h3");
         let h4 = document.createElement("h4");
+        const yourAnswer = document.createElement(`h5`)
+        yourAnswer.innerText = ("Tu respuesta fue: " + respuestasIncorrectas[i])
+        yourAnswer.style.color = "red"
         let divOptions = document.createElement(`div`);
         divOptions.setAttribute("class", "divOptions");
         let option1 = document.createElement("button");
@@ -348,10 +326,10 @@ function verIncorrectas() {
         let option4 = document.createElement("button");
         option4.setAttribute("class", "btn");
         divOptions.append(option1, option2, option3, option4);
-        const next = document.createElement(`button`);
-        next.innerHTML = ("Siguiente =>")
-        questionsDiv.append(next)
-        next.addEventListener("click", function () {
+        const next2 = document.createElement(`button`);
+        next2.setAttribute("class", "next2")
+        questionsDiv.append(next2)
+        next2.addEventListener("click", function () {
             scroll()
         })
 
@@ -363,6 +341,8 @@ function verIncorrectas() {
 
         h3.innerHTML = `Pregunta nro. ${preguntas[i].number} de 60`;
         h4.innerHTML = `${preguntas[i].text}`;
+
+        questionsDiv.append(yourAnswer)
         option1.innerHTML = `${preguntas[i].options[0]}`;
         option2.innerHTML = `${preguntas[i].options[1]}`;
         option3.innerHTML = `${preguntas[i].options[2]}`;
@@ -370,20 +350,20 @@ function verIncorrectas() {
         questionsDiv.appendChild(h3);
         questionsDiv.appendChild(h4);
         questionsDiv.append(divOptions);
+
         // opcion 1
-        option1.innerHTML === respuestasIncorrectas[i], "Sin responder" && option1.setAttribute("style", "background-color:red");
         option1.innerHTML === preguntas[i].answer && option1.setAttribute("style", "background-color:green");
-        // opcion 2
-        option2.innerHTML === respuestasIncorrectas[i], "Sin responder" && option2.setAttribute("style", "background-color:red")
+        // opcion 2     
         option2.innerHTML === preguntas[i].answer && option2.setAttribute("style", "background-color:green")
-        //opcion 3
-        option3.innerHTML === respuestasIncorrectas[i], "Sin responder" && option3.setAttribute("style", "background-color:red");
+        //opcion 3      ;
         option3.innerHTML === preguntas[i].answer && option3.setAttribute("style", "background-color:green")
-        //opcion 4
-        option4.innerHTML === respuestasIncorrectas[i], "Sin responder" && option4.setAttribute("style", "background-color:red")
+        //opcion 4       
         option4.innerHTML === preguntas[i].answer && option4.setAttribute("style", "background-color:green");
-
-
-
     }
 }
+// EJECUCION
+introTest()
+// mostrar test
+start.addEventListener("click", function () {
+    comenzarTest()
+});

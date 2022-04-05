@@ -287,6 +287,9 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #courses .levelsInfo .levels {
@@ -298,8 +301,9 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 1.5em;
   padding: 1em;
   width: 50%;
@@ -621,7 +625,7 @@ html {
   scroll-snap-align: start;
 }
 
-#mainTest .contenedor .right .questionsDiv .next, #mainTest .contenedor .right .questionsDiv .prev {
+#mainTest .contenedor .right .questionsDiv .next, #mainTest .contenedor .right .questionsDiv .next2, #mainTest .contenedor .right .questionsDiv .prev {
   width: 3em;
   height: 3em;
   background-color: transparent;
