@@ -53,6 +53,7 @@ function introTest() {
 }
 
 const respuestasUsuario = []
+const respuestasCorrectasUsuario=[]
 const respuestasIncorrectas = []
 
 // COMENZAR TEST
@@ -84,7 +85,7 @@ function comenzarTest(e) {
         // pasar pregunta
         next.addEventListener("click", function () {
             scroll()
-            respuestasIncorrectas.push("Sin responder")
+            respuestasUsuario.push("Sin responder")
             Toastify({
                 text: "X",
                 duration: 3000,
@@ -122,7 +123,8 @@ function comenzarTest(e) {
             if (option1.innerHTML === preguntas[i].answer) {
                 option1.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option1.innerHTML)
-                localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
+                    respuestasCorrectasUsuario.push(option1.innerHTML)
+                localStorage.setItem("respuestaStorage", JSON.stringify(respuestasCorrectasUsuario))
                 Toastify({
                     text: "Correct!",
                     duration: 3000,
@@ -134,6 +136,7 @@ function comenzarTest(e) {
             } else {
                 option1.style.backgroundColor = "#ec4a3f",
                     respuestasIncorrectas.push(option1.innerHTML)
+                    respuestasUsuario.push(option1.innerHTML)
                 Toastify({
                     text: "Incorrect!",
                     duration: 3000,
@@ -151,7 +154,8 @@ function comenzarTest(e) {
             if (option2.innerHTML === preguntas[i].answer) {
                 option2.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option2.innerHTML),
-                    localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
+                    respuestasCorrectasUsuario.push(option2.innerHTML)
+                    localStorage.setItem("respuestaStorage", JSON.stringify(respuestasCorrectasUsuario))
                 Toastify({
                     text: "Correct!",
                     duration: 3000,
@@ -161,6 +165,7 @@ function comenzarTest(e) {
                 }).showToast();
             } else {
                 option2.style.backgroundColor = "#ec4a3f",
+                respuestasUsuario.push(option2.innerHTML)
                     respuestasIncorrectas.push(option2.innerHTML)
                 Toastify({
                     text: "Incorrect!",
@@ -179,7 +184,8 @@ function comenzarTest(e) {
             if (option3.innerHTML === preguntas[i].answer) {
                 option3.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option3.innerHTML),
-                    localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
+                    respuestasCorrectasUsuario.push(option3.innerHTML),
+                    localStorage.setItem("respuestaStorage", JSON.stringify(respuestasCorrectasUsuario))
                 Toastify({
                     text: "Correct!",
                     duration: 3000,
@@ -189,6 +195,7 @@ function comenzarTest(e) {
                 }).showToast();
             } else {
                 option3.style.backgroundColor = "#ec4a3f",
+                respuestasUsuario.push(option3.innerHTML)
                     respuestasIncorrectas.push(option3.innerHTML)
                 Toastify({
                     text: "Incorrect!",
@@ -207,7 +214,8 @@ function comenzarTest(e) {
             if (option4.innerHTML === preguntas[i].answer) {
                 option4.style.backgroundColor = "#85ED3E",
                     respuestasUsuario.push(option4.innerHTML),
-                    localStorage.setItem("respuestaStorage", JSON.stringify(respuestasUsuario))
+                    respuestasCorrectasUsuario.push(option4.innerHTML),
+                    localStorage.setItem("respuestaStorage", JSON.stringify(respuestasCorrectasUsuario))
                 Toastify({
                     text: "Correct!",
                     duration: 3000,
@@ -217,6 +225,7 @@ function comenzarTest(e) {
                 }).showToast();
             } else {
                 option4.style.backgroundColor = "#ec4a3f",
+                respuestasUsuario.push(option4.innerHTML)
                     respuestasIncorrectas.push(option4.innerHTML)
                 Toastify({
                     text: "Incorrect!",
@@ -239,10 +248,10 @@ function nivel() {
     right.style.scrollSnapAlign = "start";
     right.append(verResultado);
     verResultado.addEventListener("click", function () {
-        if (respuestasUsuario.length < 20) {
+        if (respuestasCorrectasUsuario.length < 20) {
             Swal.fire({
                 title: 'Great job!',
-                text: "Tuviste " + respuestasUsuario.length + " respuestas correctas! Tu nivel es Elementary",
+                text: "Tuviste " + respuestasCorrectasUsuario.length + " respuestas correctas! Tu nivel es Elementary",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -253,10 +262,10 @@ function nivel() {
                     verIncorrectas()
                 }
             })
-        } else if (respuestasUsuario.length > 20 && respuestasUsuario.length <= 29) {
+        } else if (respuestasCorrectasUsuario.length > 20 && respuestasCorrectasUsuario.length <= 29) {
             Swal.fire({
                 title: 'Great job!',
-                text: "Tuviste " + respuestasUsuario.length + " respuestas correctas! Tu nivel es Begginer",
+                text: "Tuviste " + respuestasCorrectasUsuario.length + " respuestas correctas! Tu nivel es Begginer",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -267,10 +276,10 @@ function nivel() {
                     verIncorrectas()
                 }
             })
-        } else if (respuestasUsuario.length >= 30 && respuestasUsuario.length <= 39) {
+        } else if (respuestasCorrectasUsuario.length >= 30 && respuestasCorrectasUsuario.length <= 39) {
             Swal.fire({
                 title: 'Great job!',
-                text: "Tuviste " + respuestasUsuario.length + " respuestas correctas! Tu nivel es Intermediate",
+                text: "Tuviste " + respuestasCorrectasUsuario.length + " respuestas correctas! Tu nivel es Intermediate",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -284,7 +293,7 @@ function nivel() {
         } else {
             Swal.fire({
                 title: 'Great job!',
-                text: "Tuviste " + respuestasUsuario.length + " respuestas correctas! Tu nivel es Advanced",
+                text: "Tuviste " + respuestasCorrectasUsuario.length + " respuestas correctas! Tu nivel es Advanced",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -302,7 +311,7 @@ function nivel() {
 function verIncorrectas() {
     for (let i = 0; i < preguntas.length; i++) {
         right.style.backgroundColor = "transparent";
-        right.style.overflow = ("scroll")
+        
         let questionsDiv = document.createElement(`div`);
         questionsDiv.setAttribute("class", "questionsDiv");
         questionsDiv.setAttribute("id", "preguntasDiv");
@@ -313,7 +322,7 @@ function verIncorrectas() {
         let h4 = document.createElement("h4");
         const yourAnswer = document.createElement(`h5`);
         yourAnswer.innerText = ("Tu respuesta fue: " + respuestasUsuario[i]);
-        respuestasUsuario[i] !== respuestasCorrectas[i] ? yourAnswer.style.color = "red" : yourAnswer.style.color = "gray";
+        respuestasUsuario[i]===preguntas[i].answer ?  yourAnswer.style.color="green" :yourAnswer.style.color="red"
         yourAnswer.style.textAlign = ("center");
         let divOptions = document.createElement(`div`);
         divOptions.setAttribute("class", "divOptions");
