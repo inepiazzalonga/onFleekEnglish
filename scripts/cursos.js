@@ -46,7 +46,7 @@ fetch(url)
             })
             const contacto1 = document.querySelector(`#contacto1`)
             contacto1.addEventListener("click", () => {
-               window.location="/contacto.html"
+               window.location="contacto.html"
             })
         }, {
             once: true
@@ -77,7 +77,7 @@ fetch(url)
             })
             const contacto2 = document.querySelector(`#contacto2`)
             contacto2.addEventListener("click", () => {
-                window.location="/contacto.html"
+                window.location="contacto.html"
             })
         }, {
             once: true
@@ -108,7 +108,7 @@ fetch(url)
             })
             const contacto3 = document.querySelector(`#contacto3`)
             contacto3.addEventListener("click", () => {
-                window.location="/contacto.html"
+                window.location="contacto.html"
             })
         }, {
             once: true
