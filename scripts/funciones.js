@@ -306,15 +306,15 @@ function verIncorrectas() {
         let questionsDiv = document.createElement(`div`);
         questionsDiv.setAttribute("class", "questionsDiv");
         questionsDiv.setAttribute("id", "preguntasDiv");
-        questionsDiv.style.height="max-content"
+        questionsDiv.style.height = "max-content"
         right.append(questionsDiv);
         questionsDiv.style.backgroundColor = " #fff";
         let h3 = document.createElement("h3");
         let h4 = document.createElement("h4");
-        const yourAnswer = document.createElement(`h5`)
-        yourAnswer.innerText = ("Tu respuesta fue: " + respuestasIncorrectas[i])
-        yourAnswer.style.color = "red"
-        yourAnswer.style.textAlign=("center")
+        const yourAnswer = document.createElement(`h5`);
+        yourAnswer.innerText = ("Tu respuesta fue: " + respuestasUsuario[i]);
+        respuestasUsuario[i] !== respuestasCorrectas[i] ? yourAnswer.style.color = "red" : yourAnswer.style.color = "gray";
+        yourAnswer.style.textAlign = ("center");
         let divOptions = document.createElement(`div`);
         divOptions.setAttribute("class", "divOptions");
         let option1 = document.createElement("button");
@@ -334,9 +334,9 @@ function verIncorrectas() {
         })
 
         function scroll() {
-            right.style.scrollSnapType = "y mandatory",
-                questionsDiv.style.scrollSnapAlign = "start"
-            right.scrollBy(0, 500)
+            right.style.scrollSnapType = "y mandatory";
+            questionsDiv.style.scrollSnapAlign = "start";
+            right.scrollBy(0, 500);
         }
 
         h3.innerHTML = `Pregunta nro. ${preguntas[i].number} de 60`;
@@ -354,9 +354,9 @@ function verIncorrectas() {
         // opcion 1
         option1.innerHTML === preguntas[i].answer && option1.setAttribute("style", "background-color:green");
         // opcion 2     
-        option2.innerHTML === preguntas[i].answer && option2.setAttribute("style", "background-color:green")
+        option2.innerHTML === preguntas[i].answer && option2.setAttribute("style", "background-color:green");
         //opcion 3      ;
-        option3.innerHTML === preguntas[i].answer && option3.setAttribute("style", "background-color:green")
+        option3.innerHTML === preguntas[i].answer && option3.setAttribute("style", "background-color:green");
         //opcion 4       
         option4.innerHTML === preguntas[i].answer && option4.setAttribute("style", "background-color:green");
     }

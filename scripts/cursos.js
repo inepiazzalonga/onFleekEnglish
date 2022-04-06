@@ -27,6 +27,7 @@ fetch(url)
             courses.style.height = "max-content"
             begginer.style.width = "90em"
             begginer.style.height = "45em"
+            begginer.style.lineHeight="normal"
             intermediate.remove()
             advanced.remove()
             noSe.remove()
@@ -57,6 +58,7 @@ fetch(url)
             courses.style.height = "max-content"
             intermediate.style.width = "90em"
             intermediate.style.height = "45em"
+            intermediate.style.lineHeight="normal"
             begginer.remove()
             advanced.remove()
             noSe.remove()
@@ -87,6 +89,7 @@ fetch(url)
             courses.style.height = "max-content"
             advanced.style.width = "90em"
             advanced.style.height = "45em"
+            advanced.style.lineHeight="normal"
             intermediate.remove()
             begginer.remove()
             noSe.remove()
